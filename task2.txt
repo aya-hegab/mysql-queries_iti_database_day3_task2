@@ -1,0 +1,58 @@
+#1
+INSERT INTO employee
+VALUES (102672, 'Aya', 'Hegab', '2000-01-01', 'el-sherouk - cairo', 'F', 1000,112233,30);
+
+#2
+INSERT INTO employee
+VALUES (102660, 'Mona', 'Omran', '2000-05-26', 'el-sherouk - cairo', 'F', null,null,30);
+
+#3
+INSERT INTO departments
+VALUES ("DEPT IT", 100, 112233,'2006-11-1');
+
+#4a
+UPDATE employee
+SET DNO = 100
+WHERE  SSN = 968574;
+
+#4b
+UPDATE departments
+SET MGRSSN = 968574
+WHERE  Dnum = 100;
+
+#4c
+UPDATE departments
+SET MGRSSN = 102672
+WHERE  Dnum = 20;
+
+#5
+UPDATE employee
+SET Salary = Salary * 1.2
+WHERE  SSN = 102672;
+
+----------------------------------------------------------------
+#1
+SELECT * FROM employee;
+
+#2
+SELECT Fname, Lname, Salary, DNO FROM employee;
+
+#3
+SELECT 
+    CONCAT_WS(' ', Fname, Lname) AS FullName, Salary * 1.10 As AnnualComm
+FROM
+    employee;
+
+#4
+SELECT SSN, Fname FROM employee
+WHERE Salary > 1000;
+
+#5
+SELECT SSN, Fname FROM employee
+WHERE Salary*12 > 10000;
+
+#6
+SELECT Fname, Salary FROM employee
+WHERE Gender = 'F';
+
+
